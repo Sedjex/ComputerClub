@@ -9,7 +9,6 @@ namespace ComputerClub
         {
             ComputerClub computerClub = new ComputerClub(8);
             computerClub.Work();
-            //Console.ReadKey();
         }
     }
 
@@ -22,6 +21,7 @@ namespace ComputerClub
         public ComputerClub(int computerCount)
         {
             Random rand = new Random();
+
             for (int i = 0; i < computerCount; i++)
             {
                 _computers.Add(new Computer(rand.Next(5, 30)));
@@ -33,6 +33,7 @@ namespace ComputerClub
         private void CreateNewUser(int count)
         {
             Random rand = new Random();
+
             for (int i = 0; i < count; i++)
             {
                 _users.Enqueue(new User(rand.Next(100, 250), rand));
@@ -47,6 +48,7 @@ namespace ComputerClub
 
                 User user = _users.Dequeue();
                 Console.WriteLine("У черзі клієнт, хоче придбати " + user.DesiredMinutes + " хвилин");
+
                 Console.WriteLine("\n Список компʼютерів: ");
                 ShowAllComputers();
 
@@ -82,6 +84,7 @@ namespace ComputerClub
                 Console.WriteLine("Щоб перейти до нового клієнта натисніть будь-яку клавішу");
                 Console.ReadKey();
                 Console.Clear();
+
                 SkipMinute();
             }
         }
@@ -152,8 +155,8 @@ namespace ComputerClub
     {
         private int _money;
         private int _moneyToPay;
-        public int DesiredMinutes { get; private set; }
 
+        public int DesiredMinutes { get; private set; }
         public User(int money, Random rand)
         {
             _money = money;
